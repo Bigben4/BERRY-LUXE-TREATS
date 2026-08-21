@@ -1,0 +1,354 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Glacier Bakery - Made to Celebrate. Baked to Delight.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#d8e3fb",
+                        "secondary-fixed": "#e6e3d3",
+                        "surface-container": "#e7eeff",
+                        "tertiary-fixed": "#f1dde9",
+                        "on-tertiary-container": "#3c2f38",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#48473c",
+                        "tertiary-container": "#a896a1",
+                        "outline-variant": "#bec8d2",
+                        "on-primary-container": "#003751",
+                        "surface": "#f9f9ff",
+                        "surface-variant": "#d8e3fb",
+                        "primary-container": "#0ea5e9",
+                        "secondary-fixed-dim": "#cac7b8",
+                        "on-secondary-container": "#666558",
+                        "inverse-primary": "#89ceff",
+                        "on-tertiary-fixed-variant": "#51434c",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#3e4850",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#89ceff",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#e6e3d3",
+                        "primary-fixed": "#c9e6ff",
+                        "tertiary": "#695a64",
+                        "surface-dim": "#cfdaf2",
+                        "on-surface": "#111c2d",
+                        "outline": "#6e7881",
+                        "on-background": "#111c2d",
+                        "surface-tint": "#006591",
+                        "surface-container-low": "#f0f3ff",
+                        "on-primary-fixed-variant": "#004c6e",
+                        "surface-container-high": "#dee8ff",
+                        "inverse-on-surface": "#ecf1ff",
+                        "surface-bright": "#f9f9ff",
+                        "on-primary-fixed": "#001e2f",
+                        "tertiary-fixed-dim": "#d5c1cd",
+                        "on-tertiary-fixed": "#231820",
+                        "primary": "#006591",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#1c1c13",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#605f53",
+                        "inverse-surface": "#263143",
+                        "background": "#f9f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "64px",
+                        "stack-sm": "16px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px",
+                        "unit": "8px",
+                        "stack-md": "32px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .pastry-palette { background: linear-gradient(135deg, #fffaf0 0%, #ffe4e1 100%); }
+        .ambient-shadow { box-shadow: 0px 10px 30px rgba(14, 165, 233, 0.08); }
+        .glassmorphism { backdrop-filter: blur(12px); background-color: rgba(249, 249, 255, 0.7); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased pb-24 md:pb-0" style="cursor: grabbing; user-select: none;">
+<!-- TopAppBar -->
+<header class="bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-md fixed top-0 w-full z-50 shadow-sm transition-all duration-300">
+<div class="flex justify-between items-center px-margin-mobile md:px-gutter max-w-container-max mx-auto h-20">
+<div class="flex items-center gap-4"><a class="flex items-center gap-2 group" href="/">
+<div class="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center font-display-lg-mobile text-[20px] shadow-sm group-hover:scale-105 transition-transform">
+    BLT
+  </div>
+<span class="font-headline-md text-primary hidden sm:inline-block">BLT</span>
+</a>
+<button class="md:hidden text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 0;">menu</span>
+</button>
+</div>
+<nav class="hidden md:flex items-center bg-gradient-to-r from-sky-400 to-sky-600 rounded-full px-8 py-3 shadow-md gap-12"><a class="text-white font-bold hover:opacity-80 transition-opacity text-body-lg px-6" href="#cakes">Cakes</a><a class="text-white font-bold hover:opacity-80 transition-opacity text-body-lg px-6" href="#gifts">Gifts</a><a class="text-white font-bold hover:opacity-80 transition-opacity text-body-lg px-6" href="#delivery">Delivery</a><a class="text-white font-bold hover:opacity-80 transition-opacity text-body-lg px-6" href="#services">Services</a><a class="text-white font-bold hover:opacity-80 transition-opacity text-body-lg px-6" href="#story">Story</a></nav>
+<button aria-label="Toggle theme" class="w-10 h-10 flex items-center justify-center rounded-full text-primary hover:bg-surface-container-high transition-colors active:scale-95 mr-2" id="theme-toggle"><span class="material-symbols-outlined block dark:hidden" style="font-variation-settings: &quot;FILL&quot; 0;">light_mode</span><span class="material-symbols-outlined hidden dark:block" style="font-variation-settings: &quot;FILL&quot; 0;">dark_mode</span></button><button class="bg-gradient-to-r from-sky-400 to-sky-600 text-white px-6 py-3 rounded-full font-label-sm text-label-sm flex items-center gap-2 hover:shadow-lg transition-all active:scale-95 shadow-[0px_20px_40px_rgba(14,165,233,0.15)]">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">chat</span>
+<span class="hidden md:inline">Chat with a Baker</span>
+<span class="md:hidden">Order</span>
+</button>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[751px] flex items-center justify-center px-margin-mobile md:px-gutter py-stack-lg overflow-hidden bg-surface-container-low">
+<div class="max-w-container-max mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
+<!-- Left Column: Owner Portrait -->
+<div class="relative group">
+<div class="absolute -inset-4 bg-sky-400/10 rounded-full blur-3xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
+<div class="relative rounded-[3rem_1rem_3rem_1rem] overflow-hidden shadow-lg border-2 border-white">
+<img alt="Berry, the owner of Glacier Bakery" class="w-full h-full object-cover aspect-square md:aspect-[4/5]" src="https://lh3.googleusercontent.com/aida/AEtjO1W89WcA8OpaTZd42y-m-oKIKHckrWtdpEqK5YMB2yZ96a2DF5iUQQeY5H17Wr168BoJjebjRbIeROE0z5KIpXm-ToKKC-qOR7I-BotkS4x415-Se5GnDnoYLEfU9W-fg4QgnIZUAa1XfDia_GVwS7qQB2TiapjQZJE8G7JvElE7ukP5k7Q2mlHFbKzGl6HN0fgxUL3gUhZdT-6DQxyDBdw7aBqmx8Ruflpep8pH8JtZhZZFuedmgPcmwZM">
+</div>
+<div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg hidden md:block">
+<p class="font-headline-md text-primary">Berry</p>
+<p class="font-label-sm text-on-surface-variant">Founder &amp; Head Baker</p>
+</div>
+</div>
+<!-- Right Column: Brand Content -->
+<div class="flex flex-col items-start text-left gap-6">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary leading-tight">BERRY LUXE<br class="">TREATS, <span class="text-on-background">MADE WITH LOVE AND SERVED WITH JOY</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Specialize in fresh cakes, pastries and full catering services for weddings, birthdays, corporate events and everyday cravings.</p>
+<div class="flex flex-col sm:flex-row items-center gap-4 w-full">
+<button class="w-full sm:w-auto bg-gradient-to-r from-sky-400 to-sky-600 text-white px-8 py-4 rounded-full font-label-sm text-label-sm flex items-center justify-center gap-2 hover:shadow-[0px_20px_40px_rgba(14,165,233,0.3)] transition-all active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">chat</span>
+          Order Now on WhatsApp
+        </button>
+<a class="w-full sm:w-auto px-8 py-4 rounded-full font-label-sm text-label-sm text-primary border-2 border-primary/20 hover:border-primary/50 transition-colors flex items-center justify-center gap-2" href="#services">
+          Explore Menu
+        </a>
+</div>
+<!-- Social Icons Row -->
+<div class="flex items-center gap-6 mt-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">tiktok</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">facebook</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">chat</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Background Decorative Elements -->
+<div class="absolute top-0 right-0 w-1/3 h-1/3 bg-sky-100/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-1/4 h-1/4 bg-tertiary-fixed/30 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+</section><section class="bg-surface-container-low/50 py-stack-lg px-margin-mobile md:px-gutter" id="story">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="space-y-6">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary leading-tight">The Heart of the Bakery</h2>
+<div class="space-y-4 font-body-lg text-on-surface-variant">
+<p class="">From beautifully crafted cakes to mouth watering pastries and full catering services, We make every occasion special. Whether it's a wedding, birthday, corporate events or just a craving</p>
+<p class="">Bake fresh daily, made with love, served with joy</p>
+</div>
+<div class="pt-4">
+<button class="bg-gradient-to-r from-sky-400 to-sky-600 text-white px-8 py-4 rounded-full font-label-sm text-label-sm flex items-center gap-2 hover:shadow-[0px_20px_40px_rgba(14,165,233,0.3)] transition-all active:scale-95 shadow-lg">
+          Follow Our Journey
+          <span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -inset-4 bg-tertiary-fixed/20 rounded-full blur-3xl opacity-50"></div>
+<div class="relative rounded-[1rem_3rem_1rem_3rem] overflow-hidden shadow-lg border-2 border-white aspect-square">
+<img alt="Artisanal baking process" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmU8rHHk9iJV6rDEK8r_6WKcIPuPLbe3M3ORUpjA5t2Unip_yBTTnp_DUq5diWySBXAeI5BXEhAX_JKV6623raPLXJgeoSzqwh2Sk2v-nHcb6O4WrM16d4G-Oqf5rtp1qDOsu3HC4pdNj8ljS2PcrVe-CgZjyYUg-TRO6n2xni1xkMD44XgIrv3FmN6ndh50Q6ZJSpIHKNaYzygabxUe5m5gSJI_BUf-6M81v43huyFx8QhVICsZNBlg">
+</div>
+</div>
+</div>
+</section>
+<!-- Services Bento -->
+<section class="px-margin-mobile md:px-gutter max-w-container-max mx-auto py-stack-lg" id="services">
+<h2 class="font-headline-lg text-headline-lg text-center mb-stack-md">Our Offerings</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Cakes Card -->
+<div class="bg-primary-container text-on-primary-container rounded-xl overflow-hidden ambient-shadow group cursor-pointer transition-transform hover:-translate-y-2">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2_m9XFYECCpzjDaC6zgmwqBVFrSmLL8ugsrxtqTGgYBNlcC3cZLt3fc2rKl-fLpiWLJa2M22VCo3i525LaS_5lpl1pJuLQcsS6FCCBrin9E1ALeL5Sx5MlYkFM8aKkMyiUVQ4tkc23y87sjjNKKddr4GFuDCu3G_6TlxeaJJMBMJuRyNlv8qwp_Kj_ir6tJdOedHSGLFhN4Z7_B1ZuQNCTeyLYU7j1FJ5nBEuq8dOpwWL3wIWgOIlAg">
+</div>
+<div class="p-6 h-full">
+<h3 class="font-headline-md text-headline-md mb-2 flex items-center gap-2">
+<span class="">🎂</span> Cakes
+</h3>
+<p class="font-bold text-body-lg mb-2">From 15,000 FCFA</p>
+<ul class="font-body-md space-y-1 mb-6 opacity-90">
+<li class="">• Custom designs &amp; themes</li>
+<li class="">• Premium fillings &amp; flavors</li>
+<li class="">• Multi-tier options available</li>
+</ul>
+<span class="font-label-sm text-label-sm flex items-center gap-1 group-hover:gap-2 transition-all">Explore <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+</div>
+</div>
+<!-- Pastries Card -->
+<div class="bg-primary-container text-on-primary-container rounded-[3rem_1rem_1rem_1rem] overflow-hidden ambient-shadow group cursor-pointer transition-transform hover:-translate-y-2">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmU8rHHk9iJV6rDEK8r_6WKcIPuPLbe3M3ORUpjA5t2Unip_yBTTnp_DUq5diWySBXAeI5BXEhAX_JKV6623raPLXJgeoSzqwh2Sk2v-nHcb6O4WrM16d4G-Oqf5rtp1qDOsu3HC4pdNj8ljS2PcrVe-CgZjyYUg-TRO6n2xni1xkMD44XgIrv3FmN6ndh50Q6ZJSpIHKNaYzygabxUe5m5gSJI_BUf-6M81v43huyFx8QhVICsZNBlg">
+</div>
+<div class="p-6 h-full">
+<h3 class="font-headline-md text-headline-md mb-2 flex items-center gap-2">
+<span class="">🧁</span> Pastries
+</h3>
+<p class="font-bold text-body-lg mb-2">From 2,500 FCFA</p>
+<ul class="font-body-md space-y-1 mb-6 opacity-90">
+<li class="">• Freshly baked daily</li>
+<li class="">• French Macarons &amp; Danishes</li>
+<li class="">• Assorted snack boxes</li>
+</ul>
+<span class="font-label-sm text-label-sm flex items-center gap-1 group-hover:gap-2 transition-all">Explore <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+</div>
+</div>
+<!-- Catering Card -->
+<div class="bg-primary-container text-on-primary-container rounded-[1rem_1rem_3rem_1rem] overflow-hidden ambient-shadow group cursor-pointer transition-transform hover:-translate-y-2">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6j5pq0FWvh8xJFtAshuICtc1-9FZG8xhbKFrapTrvASLeGfyu9ahAKNC9c7PMrpiGzl3hUx0PH9WTc4e1DE8cTBphCm5p7EJH-YapwiEiLXowoqsjVt5nuICVDFuGKb8aJPsR6Os_vUh5TMXOjNEXFGyM7BNIEZu5-YtvkwFzC7uhtMe3hqBaXmMxVkYo2kzjgMxhhhgLey4LsFih0N9V8rd0Dvt0CsCRdVi87fhnidM0kM8L88yhbg">
+</div>
+<div class="p-6 h-full">
+<h3 class="font-headline-md text-headline-md mb-2 flex items-center gap-2">
+<span class="">🍽️</span> Catering
+</h3>
+<p class="font-bold text-body-lg mb-2">From 50,000 FCFA</p>
+<ul class="font-body-md space-y-1 mb-6 opacity-90">
+<li class="">• Full-service event setup</li>
+<li class="">• Savory &amp; sweet platters</li>
+<li class="">• Corporate &amp; wedding menus</li>
+</ul>
+<span class="font-label-sm text-label-sm flex items-center gap-1 group-hover:gap-2 transition-all">Explore <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+</div>
+</div>
+</div>
+</section><section class="bg-surface-container-low/50 py-stack-lg px-margin-mobile md:px-gutter" id="premium-services"><div class="max-w-container-max mx-auto"><h2 class="font-headline-lg text-headline-lg text-center mb-stack-md">Premium Services</h2><div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"><!-- Bespoke Catering --><div class="bg-white rounded-xl shadow-sm border border-primary/10 flex flex-col h-full hover:shadow-md transition-shadow px-6 pb-6"><div class="h-48 overflow-hidden rounded-t-xl mb-4"><img src="https://lh3.googleusercontent.com/aida/AEtjO1Wx4hEtetVfWou0gaDdwqReI9aiauvEdbqDngbQbNyFHGJ-0-BDoUpFGc3-x--S8NuPmHyAMb04iFKh_t2GvcNELvzLruJlet0P8Qnu5Lvyuz9p2zISmzzZXEhTYNVx7VlUBJM4ibHR_YLkS7jA8TnF8lo2c3bIDg4wSQrhbIQkITaIgxyaHLHL2k0UiQiofmunRALG-fERHxQ3cBBgNuqyxb9BwHU3NNZ3TvbkkZcJSuW7D86m0GsBcF1G" alt="Bespoke Catering" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div><div class="bg-sky-100/50 w-12 h-12 rounded-full flex items-center justify-center mb-4 mt-4"><span class="material-symbols-outlined text-primary">restaurant</span></div><h3 class="font-headline-md text-[20px] mb-2">Bespoke Catering</h3><p class="font-body-md text-on-surface-variant mb-6 flex-grow">Exquisite culinary experiences tailored for your weddings, corporate events, and private celebrations.</p><button class="w-full bg-gradient-to-r from-sky-400 to-sky-600 text-white px-4 py-3 rounded-full font-label-sm text-label-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-95">Inquire on WhatsApp</button></div><!-- Artisanal Gift Baskets --><div class="bg-white rounded-xl shadow-sm border border-primary/10 flex flex-col h-full hover:shadow-md transition-shadow px-6 pb-6"><div class="h-48 overflow-hidden rounded-t-xl mb-4"><img src="https://lh3.googleusercontent.com/aida/AEtjO1WMp-HIo_GNHNJQWRF0Rd0UTUKsTP4_OlyGqIYxdqlU9reAsGnn5Kh1WcluBU6n1CmU6TPf-a1yxivLEdqF8KL6h3s1Mb8hCSbwpN-eocDIJV5PKuWLujjf_1udwoGSmsWdfBuXHmqoLrbVNOjLyd1YTT7lMgUj5FLSrn_XaItcRw3o5CT53dpR0Ttl1JO0G2tlXO6l8wNax9K_FS5yNrVWHfJ04NsDcOGFMhh20LIB4_41YKTMpSG-y8L5" alt="Artisanal Gift Baskets" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div><div class="bg-sky-100/50 w-12 h-12 rounded-full flex items-center justify-center mb-4 mt-4"><span class="material-symbols-outlined text-primary">featured_seasonal_and_gifts</span></div><h3 class="font-headline-md text-[20px] mb-2">Artisanal Gift Baskets</h3><p class="font-body-md text-on-surface-variant mb-6 flex-grow">Curated collections of our finest treats, beautifully packaged for the perfect thoughtful gesture.</p><button class="w-full bg-gradient-to-r from-sky-400 to-sky-600 text-white px-4 py-3 rounded-full font-label-sm text-label-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-95">Get a Quote on WhatsApp</button></div><!-- Elegant Money Bouquets --><div class="bg-white rounded-xl shadow-sm border border-primary/10 flex flex-col h-full hover:shadow-md transition-shadow px-6 pb-6"><div class="h-48 overflow-hidden rounded-t-xl mb-4"><img src="https://lh3.googleusercontent.com/aida/AEtjO1XXUgj4RUSC7wFTaNu0Ngka6D3wyly0OdeA-cwEpPwXTcOqbthJHEoXDdqlGOovxE4a8PyrZfKwEXDLNHcW00vqSufkO9mT3whtz7ADM1oRjg8YIXtjNTTHj1Jqo5AihYG1udJDwe7UbfGTjyazEg0I0h-aXNT26X9ToeqXi0DSadGAD1S3btL0tR6jJfwVizpKNYHuIJCN8RGBa-JyeZC7eIXLQnBcx9kSrP733xuFByWHiCMtFFUrBs5r" alt="Elegant Money Bouquets" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div><div class="bg-sky-100/50 w-12 h-12 rounded-full flex items-center justify-center mb-4 mt-4"><span class="material-symbols-outlined text-primary">payments</span></div><h3 class="font-headline-md text-[20px] mb-2">Elegant Money Bouquets</h3><p class="font-body-md text-on-surface-variant mb-6 flex-grow">A unique and stunning way to gift, combining floral elegance with a practical and memorable surprise.</p><button class="w-full bg-gradient-to-r from-sky-400 to-sky-600 text-white px-4 py-3 rounded-full font-label-sm text-label-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-95">Inquire on WhatsApp</button></div><!-- Signature Custom Cakes --><div class="bg-white rounded-xl shadow-sm border border-primary/10 flex flex-col h-full hover:shadow-md transition-shadow px-6 pb-6"><div class="h-48 overflow-hidden rounded-t-xl mb-4"><img src="https://lh3.googleusercontent.com/aida/AEtjO1U-yQcJASW4Lof4abZ3xqkASRDbugl1CgABR9aK0l001g2GGXqCwQlbW_kTDqfZFHtHwSw3LxBVdtNlVKv9L6rpHr7nsFIkwAl1F_b0-7Tl3V7lAY0vZjohoTJdRItdTpmKsr76ZQ297w9qvzUNcT2jzqusAF4rfdVtp5KGzB7Q9_BlrPY7p4DjuJqT925baHmiVjXNT-EAbErzqOD7SrVZEYsb52Jp3-vojXfTeWCxkDiM-0uw10uRXPSP" alt="Signature Custom Cakes" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div><div class="bg-sky-100/50 w-12 h-12 rounded-full flex items-center justify-center mb-4 mt-4"><span class="material-symbols-outlined text-primary">cake</span></div><h3 class="font-headline-md text-[20px] mb-2">Signature Custom Cakes</h3><p class="font-body-md text-on-surface-variant mb-6 flex-grow">One-of-a-kind masterpieces designed to be the centerpiece of your most special milestones.</p><button class="w-full bg-gradient-to-r from-sky-400 to-sky-600 text-white px-4 py-3 rounded-full font-label-sm text-label-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-95">Get a Quote on WhatsApp</button></div></div></div></section><section class="bg-surface-container-low/50 py-stack-lg px-margin-mobile md:px-gutter overflow-hidden relative" id="delivery">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
+<div class="space-y-6">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary leading-tight">Great Taste Has No Distance</h2>
+<p class="font-body-lg text-on-surface-variant max-w-xl">We deliver our fresh creations beyond Buea. Distance is not a barrier to celebrating with the best treats.</p>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
+<div class="flex items-center gap-2 text-on-surface font-label-sm">
+<span class="material-symbols-outlined text-primary">location_on</span> Buea
+        </div>
+<div class="flex items-center gap-2 text-on-surface font-label-sm">
+<span class="material-symbols-outlined text-primary">location_on</span> Limbe
+        </div>
+<div class="flex items-center gap-2 text-on-surface font-label-sm">
+<span class="material-symbols-outlined text-primary">location_on</span> Tiko
+        </div>
+<div class="flex items-center gap-2 text-on-surface font-label-sm">
+<span class="material-symbols-outlined text-primary">location_on</span> Douala
+        </div>
+<div class="flex items-center gap-2 text-on-surface font-label-sm">
+<span class="material-symbols-outlined text-primary">add_circle</span> &amp; Beyond
+        </div>
+</div>
+<div class="pt-6">
+<button class="bg-gradient-to-r from-sky-400 to-sky-600 text-white px-8 py-4 rounded-full font-label-sm text-label-sm flex items-center gap-2 hover:shadow-[0px_20px_40px_rgba(14,165,233,0.3)] transition-all active:scale-95 shadow-lg">
+          Check Delivery Info
+          <span class="material-symbols-outlined text-[20px]">local_shipping</span>
+</button>
+</div>
+</div>
+<div class="relative flex justify-center">
+<div class="absolute inset-0 bg-sky-400/10 rounded-full blur-3xl opacity-50"></div>
+<div class="relative bg-white p-8 rounded-[3rem_1rem_3rem_1rem] shadow-lg border-2 border-white flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-primary text-[80px]" style="font-variation-settings: &quot;FILL&quot; 0, &quot;wght&quot; 100;">distance</span>
+<div class="text-center">
+<p class="font-headline-md text-primary">Fast &amp; Fresh</p>
+<p class="font-label-sm text-on-surface-variant">Doorstep Delivery</p>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute top-0 left-0 w-1/4 h-1/4 bg-sky-100/50 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2"></div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md fixed bottom-0 w-full z-50 rounded-t-lg shadow-[0px_-10px_30px_rgba(14,165,233,0.08)]">
+<div class="flex justify-around items-center py-2 px-margin-mobile">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 active:scale-90 duration-200" href="#cakes">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">cake</span>
+<span class="font-label-sm text-[12px] mt-1">Cakes</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-xl px-4 py-1 active:scale-90 duration-200" href="#gifts">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 0;">redeem</span>
+<span class="font-label-sm text-[12px] mt-1">Gifts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-xl px-4 py-1 active:scale-90 duration-200" href="#delivery">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 0;">local_shipping</span>
+<span class="font-label-sm text-[12px] mt-1">Delivery</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-xl px-4 py-1 active:scale-90 duration-200" href="#story">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 0;">history</span>
+<span class="font-label-sm text-[12px] mt-1">Story</span>
+</a>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-lowest w-full rounded-t-xl mt-stack-lg relative z-10 pb-24 md:pb-0">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-md px-margin-mobile md:px-gutter py-stack-lg max-w-container-max mx-auto">
+<div>
+<div class="font-headline-lg text-headline-lg text-primary mb-4">BLT&nbsp;</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Made to Celebrate. Baked to Delight.</p>
+<div class="font-body-md text-body-md text-on-surface-variant">
+                    © 2024 BERRY LUXE TREATS Cameroon. Celebrating taste.
+                </div>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface mb-4 uppercase tracking-wider">Locations</h4>
+<ul class="space-y-2 flex flex-col">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-300" href="#">Buea</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-300" href="#">Limbe</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-300" href="#">Tiko</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-300" href="#">Douala</a>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface mb-4 uppercase tracking-wider">Social</h4>
+<ul class="space-y-2 flex flex-col">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-300 flex items-center gap-2" href="#">TikTok <span class="material-symbols-outlined text-[16px]">open_in_new</span></a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-300 flex items-center gap-2" href="#">Facebook <span class="material-symbols-outlined text-[16px]">open_in_new</span></a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-300 flex items-center gap-2" href="#">Instagram <span class="material-symbols-outlined text-[16px]">open_in_new</span></a>
+</ul>
+</div>
+</div>
+</footer>
+
+
+
+
+</body></html>
