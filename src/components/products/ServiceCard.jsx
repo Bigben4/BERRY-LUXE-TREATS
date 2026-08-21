@@ -11,7 +11,7 @@ const iconMap = {
 };
 
 export default function ServiceCard({ service }) {
-  const { title, description, image, imageAlt, icon, badge, ctaText } = service;
+  const { title, description, priceText, image, imageAlt, icon, badge, ctaText } = service;
   const faIcon = iconMap[icon] || faCakeCandles;
 
   return (
@@ -25,11 +25,21 @@ export default function ServiceCard({ service }) {
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
           />
-          <div className="absolute top-3 right-3">
-            <span className="bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-full text-[11px] font-bold text-[#661f31] border border-[#f4c4ce] shadow-2xs">
-              {badge}
-            </span>
-          </div>
+          {badge && (
+            <div className="absolute top-3 right-3">
+              <span className="bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-full text-[11px] font-bold text-[#661f31] border border-[#f4c4ce] shadow-2xs">
+                {badge}
+              </span>
+            </div>
+          )}
+
+          {priceText && (
+            <div className="absolute bottom-3 left-3">
+              <span className="bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-[#661f31] border border-[#f4c4ce] shadow-xs">
+                {priceText}
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Content */}

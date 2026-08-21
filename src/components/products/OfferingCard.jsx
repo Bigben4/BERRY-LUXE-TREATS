@@ -1,12 +1,14 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCakeCandles, faCookieBite, faUtensils, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCakeCandles, faCookieBite, faUtensils, faGift, faMoneyBillWave, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import WhatsAppButton from '../common/WhatsAppButton';
 
 const iconMap = {
   Cake: faCakeCandles,
   Cookie: faCookieBite,
-  UtensilsCrossed: faUtensils
+  UtensilsCrossed: faUtensils,
+  Gift: faGift,
+  Banknote: faMoneyBillWave
 };
 
 export default function OfferingCard({ offering, onOpenQuickOrder }) {
@@ -14,6 +16,7 @@ export default function OfferingCard({ offering, onOpenQuickOrder }) {
     title,
     icon,
     priceText,
+    badge,
     description,
     features,
     image,
@@ -38,6 +41,15 @@ export default function OfferingCard({ offering, onOpenQuickOrder }) {
             loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+
+          {/* Top Category / Style Badge */}
+          {badge && (
+            <div className="absolute top-4 right-4">
+              <span className="bg-[#1f1418]/85 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-[#dfb079] border border-white/20 shadow-sm">
+                {badge}
+              </span>
+            </div>
+          )}
 
           {/* Price Badge */}
           <div className="absolute bottom-4 left-4">
