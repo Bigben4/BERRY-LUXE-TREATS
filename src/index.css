@@ -1,11 +1,92 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, Cambria, serif;
+
+  /* Logo Primary Colors: Deep Berry / Burgundy / Wine */
+  --color-brand-primary: #661f31;
+  --color-brand-primary-hover: #501624;
+  --color-brand-primary-light: #822a41;
+  --color-brand-primary-dark: #3a0d18;
+  --color-brand-primary-50: #fdf2f4;
+  --color-brand-primary-100: #fae1e6;
+  --color-brand-primary-200: #f4c4ce;
+  --color-brand-primary-500: #882b43;
+  --color-brand-primary-900: #541726;
+
+  /* Logo Accent Colors: Warm Luxe Gold */
+  --color-brand-gold: #c69255;
+  --color-brand-gold-hover: #b07c40;
+  --color-brand-gold-light: #dfb079;
+  --color-brand-gold-dark: #916127;
+  --color-brand-gold-50: #fef9f2;
+  --color-brand-gold-100: #fcf1e2;
+  --color-brand-gold-200: #f7e0c2;
+
+  /* Surface & Neutral Colors */
+  --color-brand-bg: #faf6f3;
+  --color-brand-surface: #ffffff;
+  --color-brand-cream: #fffaf5;
+  --color-brand-blush: #fcf0f3;
+  --color-brand-dark: #1f1418;
+  --color-brand-muted: #64555b;
+  --color-brand-border: #ede1e4;
+
+  /* WhatsApp Green */
+  --color-whatsapp: #25d366;
+  --color-whatsapp-hover: #20ba5a;
+  --color-whatsapp-dark: #128c7e;
+}
+
 @layer base {
   body {
-    background-color: #09090b;
-    color: #fafafa;
-    min-height: 100vh;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #faf6f3;
+    color: #1f1418;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.02em;
   }
 }
+
+/* Custom Soft Glassmorphism and Ambient Shadows */
+.ambient-shadow {
+  box-shadow: 0px 12px 36px rgba(102, 31, 49, 0.08);
+}
+
+.ambient-shadow-lg {
+  box-shadow: 0px 20px 48px rgba(102, 31, 49, 0.14);
+}
+
+.gold-shadow {
+  box-shadow: 0px 12px 30px rgba(198, 146, 85, 0.25);
+}
+
+.primary-shadow {
+  box-shadow: 0px 14px 32px rgba(102, 31, 49, 0.28);
+}
+
+.glassmorphism {
+  backdrop-filter: blur(16px);
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.glassmorphism-dark {
+  backdrop-filter: blur(16px);
+  background-color: rgba(31, 20, 24, 0.85);
+}
+
+/* Hide scrollbar utility */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 
