@@ -9,8 +9,6 @@ export default function TestimonialsSection() {
     <section id="testimonials" className="py-20 md:py-28 bg-[#fdf8f4] border-t border-[#ede1e4]">
       <Container>
         <SectionHeading
-          badge="Customer Love"
-          badgeIcon={Star}
           title="Celebrated Across Cameroon"
           subtitle="Real reviews from families, event hosts, and sweet lovers who celebrated their milestones with Berry Luxe Treats."
           className="mb-14 md:mb-16"

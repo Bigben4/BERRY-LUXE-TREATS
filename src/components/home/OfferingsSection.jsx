@@ -10,8 +10,6 @@ export default function OfferingsSection() {
     <section id="offerings" className="py-20 md:py-28 bg-[#faf6f3] border-t border-[#ede1e4]/70">
       <Container>
         <SectionHeading
-          badge="Signature Treats"
-          badgeIcon={Sparkles}
           title="Our Offerings"
           subtitle="Explore our most popular bakery selections. From custom themed cakes to breakfast pastries and grand event platters, we make every order fresh to perfection."
           className="mb-14 md:mb-16"

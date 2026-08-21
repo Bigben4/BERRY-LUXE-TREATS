@@ -10,8 +10,6 @@ export default function PremiumServicesSection() {
     <section id="services" className="py-20 md:py-28 bg-[#fdf8f4] border-t border-[#ede1e4]">
       <Container>
         <SectionHeading
-          badge="VIP & Gifting"
-          badgeIcon={Crown}
           title="Premium Services"
           subtitle="Specialized event catering, custom money bouquets, and curated gift hampers designed to elevate your milestones into unforgettable experiences."
           className="mb-14 md:mb-16"

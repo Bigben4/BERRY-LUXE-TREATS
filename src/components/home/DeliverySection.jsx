@@ -1,7 +1,6 @@
 import React from 'react';
 import { MapPin, Truck, Check, Navigation, Clock, ShieldCheck } from 'lucide-react';
 import Container from '../common/Container';
-import Badge from '../common/Badge';
 import { businessInfo } from '../../data/businessInfo';
 import { deliveryLocations, deliveryFeatures } from '../../data/delivery';
 import { WhatsAppMessages } from '../../utils/whatsapp';
@@ -17,10 +16,6 @@ export default function DeliverySection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Delivery Information */}
           <div className="lg:col-span-7 space-y-6">
-            <Badge variant="gold" icon={Truck}>
-              Reliable Transit
-            </Badge>
-
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#661f31] font-heading leading-tight">
               Great Taste Has No Distance
             </h2>

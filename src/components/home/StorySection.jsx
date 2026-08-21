@@ -1,7 +1,6 @@
 import React from 'react';
-import { Heart, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Heart, CheckCircle2 } from 'lucide-react';
 import Container from '../common/Container';
-import Badge from '../common/Badge';
 import { businessInfo } from '../../data/businessInfo';
 import { WhatsAppMessages } from '../../utils/whatsapp';
 
@@ -15,10 +14,6 @@ export default function StorySection() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Story Text */}
           <div className="md:col-span-6 space-y-6">
-            <Badge variant="primary" icon={Sparkles}>
-              Our Passion & Craft
-            </Badge>
-
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#661f31] font-heading leading-tight">
               The Heart of the Bakery
             </h2>

@@ -17,8 +17,6 @@ export default function GallerySection({ onSelectImage }) {
     <section id="gallery" className="py-20 md:py-28 bg-[#fdf8f4] border-t border-[#ede1e4]">
       <Container>
         <SectionHeading
-          badge="Live Creations"
-          badgeIcon={Camera}
           title="Our Real Treats Showcase"
           subtitle="A glimpse into recent orders handcrafted with love in our kitchen — from graduation cakes to surprise money bouquets and corporate platters."
           className="mb-10 md:mb-12"

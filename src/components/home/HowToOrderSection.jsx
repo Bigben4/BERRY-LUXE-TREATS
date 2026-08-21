@@ -17,8 +17,6 @@ export default function HowToOrderSection() {
     <section id="how-to-order" className="py-20 md:py-28 bg-[#faf6f3] border-t border-[#ede1e4] relative overflow-hidden">
       <Container>
         <SectionHeading
-          badge="Seamless Process"
-          badgeIcon={Sparkles}
           title="How Ordering Works"
           subtitle="We make ordering personalized cakes and celebration treats effortless through a direct chat with our bakery team."
           className="mb-14 md:mb-16"
