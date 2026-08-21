@@ -62,17 +62,26 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Brand Headline & CTAs */}
+          {/* Right Column: Brand Headline & CTAs (5-Second Immediate Clarity) */}
           <div className="lg:col-span-7 flex flex-col items-start text-left order-1 lg:order-2">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#661f31] font-heading leading-[1.15]">
-              BERRY LUXE TREATS,{' '}
+            {/* Direct 3-Pillar Category Indicator */}
+            <div className="flex items-center gap-2 text-xs sm:text-sm font-extrabold uppercase tracking-[0.22em] text-[#c69255] mb-3">
+              <span>CAKES</span>
+              <span className="text-[#661f31]">•</span>
+              <span>PASTRIES</span>
+              <span className="text-[#661f31]">•</span>
+              <span>CATERING</span>
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#661f31] font-heading leading-[1.12]">
+              Made for your moments.{' '}
               <span className="text-[#1f1418] block sm:inline font-extrabold">
-                MADE WITH LOVE AND SERVED WITH JOY
+                Baked with love.
               </span>
             </h1>
 
-            <p className="mt-6 text-base sm:text-xl text-[#64555b] max-w-xl leading-relaxed">
-              {businessInfo.description}
+            <p className="mt-5 text-base sm:text-xl text-[#64555b] max-w-xl leading-relaxed">
+              Custom cakes, fresh pastries and full-service catering for birthdays, weddings, corporate events and every celebration in between.
             </p>
 
             {/* Action Buttons */}
@@ -83,7 +92,7 @@ export default function Hero() {
                 variant="primary"
                 className="shadow-lg shadow-[#661f31]/25 hover:shadow-xl hover:shadow-[#661f31]/35"
               >
-                Order Now on WhatsApp
+                Order on WhatsApp
               </WhatsAppButton>
 
               <a

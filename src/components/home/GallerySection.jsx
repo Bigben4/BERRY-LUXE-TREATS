@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Camera, Sparkles, MessageCircle, ExternalLink } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import Container from '../common/Container';
 import SectionHeading from '../common/SectionHeading';
 import { galleryCategories, galleryItems } from '../../data/gallery';
@@ -14,7 +14,7 @@ export default function GallerySection({ onSelectImage }) {
       : galleryItems.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="gallery" className="py-20 md:py-28 bg-[#fdf8f4] border-t border-[#ede1e4]">
+    <section id="gallery" className="py-20 md:py-28 bg-[#fef9f1] border-t border-[#ede1e4]">
       <Container>
         <SectionHeading
           title="Our Real Treats Showcase"

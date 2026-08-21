@@ -1,5 +1,4 @@
 import React from 'react';
-import { Crown } from 'lucide-react';
 import Container from '../common/Container';
 import SectionHeading from '../common/SectionHeading';
 import ServiceCard from '../products/ServiceCard';
@@ -7,7 +6,7 @@ import { premiumServices } from '../../data/services';
 
 export default function PremiumServicesSection() {
   return (
-    <section id="services" className="py-20 md:py-28 bg-[#fdf8f4] border-t border-[#ede1e4]">
+    <section id="services" className="py-20 md:py-28 bg-[#fbf0f4] border-t border-[#ede1e4]">
       <Container>
         <SectionHeading
           title="Premium Services"

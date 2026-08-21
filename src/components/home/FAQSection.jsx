@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HelpCircle, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import Container from '../common/Container';
 import SectionHeading from '../common/SectionHeading';
 import { faqs } from '../../data/faqs';
@@ -16,8 +16,6 @@ export default function FAQSection() {
     <section id="faq" className="py-20 md:py-28 bg-[#faf6f3] border-t border-[#ede1e4]">
       <Container size="narrow">
         <SectionHeading
-          badge="Got Questions?"
-          badgeIcon={HelpCircle}
           title="Frequently Asked Questions"
           subtitle="Everything you need to know about our ordering process, advance notice, delivery routes, and custom designs."
           className="mb-12"

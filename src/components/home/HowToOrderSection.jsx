@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cake, MessageSquare, Truck, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Cake, MessageSquare, Truck, CheckCircle2 } from 'lucide-react';
 import Container from '../common/Container';
 import SectionHeading from '../common/SectionHeading';
 import WhatsAppButton from '../common/WhatsAppButton';
@@ -14,7 +14,7 @@ const stepIcons = {
 
 export default function HowToOrderSection() {
   return (
-    <section id="how-to-order" className="py-20 md:py-28 bg-[#faf6f3] border-t border-[#ede1e4] relative overflow-hidden">
+    <section id="how-to-order" className="py-20 md:py-28 bg-[#fffbf8] border-t border-[#ede1e4] relative overflow-hidden">
       <Container>
         <SectionHeading
           title="How Ordering Works"

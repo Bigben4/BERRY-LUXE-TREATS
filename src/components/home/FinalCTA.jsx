@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, MessageCircle, ArrowUpRight } from 'lucide-react';
+import { MessageCircle, ArrowUpRight } from 'lucide-react';
 import Container from '../common/Container';
 import { businessInfo } from '../../data/businessInfo';
 import { WhatsAppMessages } from '../../utils/whatsapp';
@@ -14,10 +14,6 @@ export default function FinalCTA() {
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-black/30 rounded-full blur-2xl pointer-events-none" />
 
           <div className="relative z-10 max-w-3xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#dfb079] text-xs font-bold uppercase tracking-widest">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Ready for Something Special?</span>
-            </div>
 
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-heading leading-tight">
               &ldquo;{businessInfo.coreMessage}&rdquo;

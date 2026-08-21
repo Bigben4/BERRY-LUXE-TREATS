@@ -1,5 +1,4 @@
 import React from 'react';
-import { Sparkles } from 'lucide-react';
 import Container from '../common/Container';
 import SectionHeading from '../common/SectionHeading';
 import OfferingCard from '../products/OfferingCard';
@@ -7,7 +6,7 @@ import { offerings } from '../../data/offerings';
 
 export default function OfferingsSection() {
   return (
-    <section id="offerings" className="py-20 md:py-28 bg-[#faf6f3] border-t border-[#ede1e4]/70">
+    <section id="offerings" className="py-20 md:py-28 bg-[#fcf8f5] border-t border-[#ede1e4]/70">
       <Container>
         <SectionHeading
           title="Our Offerings"

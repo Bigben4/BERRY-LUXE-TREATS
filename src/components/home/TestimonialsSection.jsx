@@ -1,12 +1,12 @@
 import React from 'react';
-import { Star, MessageSquareQuote, MapPin } from 'lucide-react';
+import { Star, MapPin } from 'lucide-react';
 import Container from '../common/Container';
 import SectionHeading from '../common/SectionHeading';
 import { testimonials } from '../../data/testimonials';
 
 export default function TestimonialsSection() {
   return (
-    <section id="testimonials" className="py-20 md:py-28 bg-[#fdf8f4] border-t border-[#ede1e4]">
+    <section id="testimonials" className="py-20 md:py-28 bg-[#fbf0f4] border-t border-[#ede1e4]">
       <Container>
         <SectionHeading
           title="Celebrated Across Cameroon"

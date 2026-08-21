@@ -1,11 +1,17 @@
 import React from 'react';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Cake, Cookie, UtensilsCrossed } from 'lucide-react';
 import WhatsAppButton from '../common/WhatsAppButton';
+
+const iconMap = {
+  Cake,
+  Cookie,
+  UtensilsCrossed
+};
 
 export default function OfferingCard({ offering, onOpenQuickOrder }) {
   const {
     title,
-    emoji,
+    icon,
     priceText,
     description,
     features,
@@ -14,6 +20,8 @@ export default function OfferingCard({ offering, onOpenQuickOrder }) {
     shapeRadius = 'rounded-3xl',
     inquiryType
   } = offering;
+
+  const IconComponent = iconMap[icon] || Cake;
 
   return (
     <div
@@ -41,9 +49,9 @@ export default function OfferingCard({ offering, onOpenQuickOrder }) {
         {/* Content Details */}
         <div className="p-6 sm:p-7">
           <div className="flex items-center gap-2.5 mb-2">
-            <span className="text-2xl" role="img" aria-label={title}>
-              {emoji}
-            </span>
+            <div className="w-8 h-8 rounded-full bg-[#fdf2f4] border border-[#f4c4ce] flex items-center justify-center text-[#661f31] shrink-0">
+              <IconComponent className="w-4 h-4" />
+            </div>
             <h3 className="text-2xl font-bold text-[#1f1418] group-hover:text-[#661f31] transition-colors">
               {title}
             </h3>
@@ -68,12 +76,12 @@ export default function OfferingCard({ offering, onOpenQuickOrder }) {
       {/* Action CTA */}
       <div className="p-6 sm:p-7 pt-0 flex flex-col sm:flex-row items-center gap-3">
         <WhatsAppButton
-          message={`Hi Berry Luxe Treats! I’d like to inquire about ordering ${title} (${priceText}). Please share design & availability details.`}
+          message={offering.customMessage || `Hi! I'd like to ask about ${title}.`}
           fullWidth
           variant="primary"
           size="md"
         >
-          Order {title}
+          {offering.ctaText || `Order ${title}`}
         </WhatsAppButton>
       </div>
     </div>

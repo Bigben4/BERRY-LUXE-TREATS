@@ -26,36 +26,36 @@ export function createWhatsAppUrl(customMessage = '') {
  */
 export const WhatsAppMessages = {
   generalOrder: () =>
-    createWhatsAppUrl('Hi Berry Luxe Treats! I would like to order and taste the difference. Please share your current availability.'),
+    createWhatsAppUrl("Hi! I'd like to chat with a baker about ordering treats for an upcoming celebration."),
 
   chatWithBaker: () =>
-    createWhatsAppUrl('Hi Berry! I’d love to chat with the baker about a custom order for my upcoming celebration.'),
+    createWhatsAppUrl("Hi! I'd like to chat with a baker about my upcoming event."),
 
-  cakeInquiry: (cakeType = 'Custom Cake') =>
-    createWhatsAppUrl(`Hi Berry Luxe Treats! I’d like to inquire about ordering a ${cakeType}. What flavors and sizes are available?`),
+  cakeInquiry: (cakeType = 'this cake') =>
+    createWhatsAppUrl(`Hi! I'd like to ask about ${cakeType === 'this cake' ? 'this cake' : cakeType}.`),
 
-  pastryInquiry: (pastryType = 'Pastries & Cupcakes') =>
-    createWhatsAppUrl(`Hi Berry Luxe Treats! I’d like to order some ${pastryType} for fresh pickup / delivery.`),
+  pastryInquiry: (pastryType = 'pastries') =>
+    createWhatsAppUrl("Hi! I'd like to order some fresh pastries and cupcakes."),
 
   cateringQuote: () =>
-    createWhatsAppUrl('Hi Berry Luxe Treats! I would like to request a catering quote for my upcoming event (wedding / birthday / corporate).'),
+    createWhatsAppUrl("Hi! I'd like to get a catering quote for an event."),
 
   giftBasketInquiry: () =>
-    createWhatsAppUrl('Hi Berry Luxe Treats! I’d like to order an Artisanal Gift Basket. Please let me know the available package options.'),
+    createWhatsAppUrl("Hi! I'd like to ask about an Artisanal Gift Basket."),
 
   moneyBouquetInquiry: () =>
-    createWhatsAppUrl('Hi Berry Luxe Treats! I’d like to order an Elegant Money Bouquet for a special surprise.'),
+    createWhatsAppUrl("Hi! I'd like to order an Elegant Money Bouquet."),
 
   deliveryInquiry: (city = '') =>
     createWhatsAppUrl(
       city
-        ? `Hi Berry Luxe Treats! I would like to check delivery availability and rates to ${city}.`
-        : 'Hi Berry Luxe Treats! I would like to check your delivery schedules to Buea, Limbe, Tiko, Douala, or other locations.'
+        ? `Hi! I'd like to check delivery availability to ${city}.`
+        : "Hi! I'd like to check delivery availability to my location."
     ),
 
   galleryItemInquiry: (itemTitle = 'this treat') =>
-    createWhatsAppUrl(`Hi Berry Luxe Treats! I saw "${itemTitle}" in your gallery and I would love to order something similar.`),
+    createWhatsAppUrl(`Hi! I saw "${itemTitle}" in your gallery and I'd like to ask about this design.`),
 
   customRequest: (details = '') =>
-    createWhatsAppUrl(`Hi Berry Luxe Treats! I have a custom inquiry: ${details || 'Please let me know how to proceed.'}`),
+    createWhatsAppUrl(`Hi! I have a custom inquiry: ${details || "Let's discuss my idea."}`),
 };
