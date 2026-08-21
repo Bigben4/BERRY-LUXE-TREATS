@@ -149,7 +149,7 @@ export default function Footer() {
                 className="inline-flex items-center gap-2 text-sm text-[#faf6f3]/80 hover:text-white transition-colors"
               >
                 <FontAwesomeIcon icon={faTiktok} className="w-3.5 h-3.5" />
-                <span>TikTok @berryluxetreats</span>
+                <span>TikTok @berryluxetreat</span>
                 <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="w-2.5 h-2.5 ml-auto text-xs" />
               </a>
               <a

@@ -10,7 +10,7 @@ export const businessInfo = {
   mission: 'Bake fresh daily, made with love, served with joy.',
   locations: ['Buea', 'Limbe', 'Tiko', 'Douala', '& Beyond'],
   socials: {
-    tiktok: 'https://tiktok.com/@berryluxetreats',
+    tiktok: 'https://www.tiktok.com/@berryluxetreat?_r=1&_t=ZS-994cC9HrOYm',
     facebook: 'https://facebook.com/berryluxetreats',
     instagram: 'https://instagram.com/berryluxetreats',
   },
