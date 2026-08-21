@@ -1,11 +1,12 @@
 import React from 'react';
-import { ArrowRight, CheckCircle2, Cake, Cookie, UtensilsCrossed } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCakeCandles, faCookieBite, faUtensils, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import WhatsAppButton from '../common/WhatsAppButton';
 
 const iconMap = {
-  Cake,
-  Cookie,
-  UtensilsCrossed
+  Cake: faCakeCandles,
+  Cookie: faCookieBite,
+  UtensilsCrossed: faUtensils
 };
 
 export default function OfferingCard({ offering, onOpenQuickOrder }) {
@@ -21,7 +22,7 @@ export default function OfferingCard({ offering, onOpenQuickOrder }) {
     inquiryType
   } = offering;
 
-  const IconComponent = iconMap[icon] || Cake;
+  const faIcon = iconMap[icon] || faCakeCandles;
 
   return (
     <div
@@ -50,7 +51,7 @@ export default function OfferingCard({ offering, onOpenQuickOrder }) {
         <div className="p-6 sm:p-7">
           <div className="flex items-center gap-2.5 mb-2">
             <div className="w-8 h-8 rounded-full bg-[#fdf2f4] border border-[#f4c4ce] flex items-center justify-center text-[#661f31] shrink-0">
-              <IconComponent className="w-4 h-4" />
+              <FontAwesomeIcon icon={faIcon} className="w-3.5 h-3.5" />
             </div>
             <h3 className="text-2xl font-bold text-[#1f1418] group-hover:text-[#661f31] transition-colors">
               {title}
@@ -65,7 +66,7 @@ export default function OfferingCard({ offering, onOpenQuickOrder }) {
           <ul className="space-y-2 mb-6">
             {features.map((feature, idx) => (
               <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#1f1418]/85 font-medium">
-                <CheckCircle2 className="w-4 h-4 text-[#c69255] shrink-0 mt-0.5" />
+                <FontAwesomeIcon icon={faCircleCheck} className="w-3.5 h-3.5 text-[#c69255] shrink-0 mt-0.5" />
                 <span>{feature}</span>
               </li>
             ))}

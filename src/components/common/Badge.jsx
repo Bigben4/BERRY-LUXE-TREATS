@@ -1,4 +1,5 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Badge({
   children,
@@ -14,11 +15,20 @@ export default function Badge({
     whatsapp: 'bg-emerald-50 text-emerald-800 border-emerald-200'
   };
 
+  const renderIcon = () => {
+    if (!Icon) return null;
+    if (typeof Icon === 'object' && Icon.iconName) {
+      return <FontAwesomeIcon icon={Icon} className="w-3 h-3 shrink-0" />;
+    }
+    const Comp = Icon;
+    return <Comp className="w-3.5 h-3.5" />;
+  };
+
   return (
     <span
       className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider border shadow-2xs ${variants[variant] || variants.gold} ${className}`}
     >
-      {Icon && <Icon className="w-3.5 h-3.5" />}
+      {renderIcon()}
       {children}
     </span>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Button({
   children,
@@ -44,11 +45,20 @@ export default function Button({
     variantClasses[variant] || variantClasses.primary
   } ${fullWidth ? 'w-full' : ''} ${className}`;
 
+  const renderIcon = () => {
+    if (!Icon) return null;
+    if (typeof Icon === 'object' && Icon.iconName) {
+      return <FontAwesomeIcon icon={Icon} className="w-3.5 h-3.5 shrink-0" />;
+    }
+    const Comp = Icon;
+    return <Comp className="w-4 h-4 shrink-0" />;
+  };
+
   const content = (
     <>
-      {Icon && iconPosition === 'left' && <Icon className="w-4 h-4 shrink-0" />}
+      {Icon && iconPosition === 'left' && renderIcon()}
       <span>{children}</span>
-      {Icon && iconPosition === 'right' && <Icon className="w-4 h-4 shrink-0" />}
+      {Icon && iconPosition === 'right' && renderIcon()}
     </>
   );
 

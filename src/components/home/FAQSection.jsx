@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import Container from '../common/Container';
 import SectionHeading from '../common/SectionHeading';
 import { faqs } from '../../data/faqs';
@@ -45,7 +46,7 @@ export default function FAQSection() {
                         : 'bg-[#fdf2f4] text-[#661f31]'
                     }`}
                   >
-                    <ChevronDown className="w-4 h-4" />
+                    <FontAwesomeIcon icon={faChevronDown} className="w-3.5 h-3.5" />
                   </div>
                 </button>
 
@@ -73,7 +74,7 @@ export default function FAQSection() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#661f31] hover:bg-[#501624] text-white px-6 py-2.5 rounded-full text-xs font-bold shadow-sm transition-all"
           >
-            <span>Ask Berry on WhatsApp</span>
+            <span>Chat With a Baker</span>
           </a>
         </div>
       </Container>

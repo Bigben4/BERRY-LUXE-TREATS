@@ -1,5 +1,6 @@
 import React from 'react';
-import { MapPin, Truck, Check, Navigation, Clock, ShieldCheck } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLocationDot, faTruckFast, faCheck, faLocationArrow, faClock, faShieldHalved } from '@fortawesome/free-solid-svg-icons';
 import Container from '../common/Container';
 import { businessInfo } from '../../data/businessInfo';
 import { deliveryLocations, deliveryFeatures } from '../../data/delivery';
@@ -35,7 +36,7 @@ export default function DeliverySection() {
                   className="flex items-center gap-2.5 p-3 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/15 hover:border-[#dfb079] text-white font-semibold text-sm transition-all group shadow-sm cursor-pointer backdrop-blur-xs"
                 >
                   <div className="w-7 h-7 rounded-full bg-white/15 group-hover:bg-[#c69255] flex items-center justify-center text-[#dfb079] group-hover:text-white transition-colors shrink-0">
-                    <MapPin className="w-3.5 h-3.5" />
+                    <FontAwesomeIcon icon={faLocationDot} className="w-3.5 h-3.5" />
                   </div>
                   <span>{loc.city}</span>
                 </a>
@@ -47,7 +48,7 @@ export default function DeliverySection() {
               {deliveryFeatures.map((feat, idx) => (
                 <div key={idx} className="flex items-start gap-3">
                   <div className="w-5 h-5 rounded-full bg-[#c69255]/25 flex items-center justify-center text-[#dfb079] shrink-0 mt-0.5">
-                    <Check className="w-3 h-3 stroke-[3]" />
+                    <FontAwesomeIcon icon={faCheck} className="w-3 h-3 text-xs" />
                   </div>
                   <div>
                     <h4 className="text-xs sm:text-sm font-bold text-white">{feat.title}</h4>
@@ -65,8 +66,8 @@ export default function DeliverySection() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-[#c69255] to-[#dfb079] hover:from-[#b07c40] hover:to-[#c69255] text-white px-8 py-4 rounded-full text-sm font-bold shadow-lg shadow-black/30 hover:shadow-xl active:scale-95 transition-all"
               >
-                <span>Check Delivery Schedule & Rates</span>
-                <Truck className="w-4 h-4 text-white" />
+                <span>Check Delivery Availability</span>
+                <FontAwesomeIcon icon={faTruckFast} className="w-4 h-4 text-white" />
               </a>
             </div>
           </div>
@@ -77,7 +78,7 @@ export default function DeliverySection() {
 
             <div className="relative w-full max-w-sm bg-white/10 backdrop-blur-xl p-8 sm:p-10 rounded-[3rem_1rem_3rem_1rem] shadow-2xl border-2 border-white/20 text-center flex flex-col items-center gap-5 group">
               <div className="w-24 h-24 rounded-full bg-white/10 border-2 border-white/20 flex items-center justify-center text-[#dfb079] group-hover:scale-110 transition-transform duration-500 shadow-inner">
-                <Navigation className="w-12 h-12 text-[#dfb079] stroke-[1.5]" />
+                <FontAwesomeIcon icon={faLocationArrow} className="w-10 h-10 text-[#dfb079]" />
               </div>
 
               <div>
@@ -94,11 +95,11 @@ export default function DeliverySection() {
 
               <div className="w-full pt-4 border-t border-white/15 flex items-center justify-between text-xs text-[#fdf2f4]/80 font-medium">
                 <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                  <FontAwesomeIcon icon={faShieldHalved} className="w-4 h-4 text-emerald-400" />
                   <span>Secure Boxing</span>
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Clock className="w-4 h-4 text-[#dfb079]" />
+                  <FontAwesomeIcon icon={faClock} className="w-4 h-4 text-[#dfb079]" />
                   <span>Time-coordinated</span>
                 </span>
               </div>

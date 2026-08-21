@@ -1,5 +1,7 @@
 import React from 'react';
-import { MessageCircle, ExternalLink, Heart, MapPin, Clock } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLocationDot, faClock, faHeart, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { faWhatsapp, faTiktok, faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { businessInfo } from '../../data/businessInfo';
 import { WhatsAppMessages } from '../../utils/whatsapp';
 
@@ -31,7 +33,7 @@ export default function Footer() {
               {businessInfo.tagline} Handcrafted cakes, pastries, money bouquets, and full catering for celebrations across Cameroon.
             </p>
             <div className="flex items-center gap-2 text-xs text-[#c69255] font-medium pt-1">
-              <Clock className="w-3.5 h-3.5" />
+              <FontAwesomeIcon icon={faClock} className="w-3.5 h-3.5" />
               <span>{businessInfo.operatingHours}</span>
             </div>
           </div>
@@ -82,9 +84,9 @@ export default function Footer() {
                     href={WhatsAppMessages.deliveryInquiry(loc)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 hover:text-[#dfb079] transition-colors"
+                    className="inline-flex items-center gap-2 hover:text-[#dfb079] transition-colors"
                   >
-                    <MapPin className="w-3.5 h-3.5 text-[#c69255]" />
+                    <FontAwesomeIcon icon={faLocationDot} className="w-3 h-3 text-[#c69255]" />
                     <span>{loc}</span>
                   </a>
                 </li>
@@ -102,12 +104,12 @@ export default function Footer() {
             </p>
             <div className="flex flex-col space-y-2">
               <a
-                href={WhatsAppMessages.generalOrder()}
+                href={WhatsAppMessages.chatWithBaker()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-emerald-400 hover:text-emerald-300 font-semibold transition-colors"
               >
-                <MessageCircle className="w-4 h-4 fill-current" />
+                <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4" />
                 <span>WhatsApp: {businessInfo.founder}</span>
               </a>
               <a
@@ -116,8 +118,9 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-[#faf6f3]/80 hover:text-white transition-colors"
               >
+                <FontAwesomeIcon icon={faTiktok} className="w-3.5 h-3.5" />
                 <span>TikTok @berryluxetreats</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="w-2.5 h-2.5 ml-auto text-xs" />
               </a>
               <a
                 href={businessInfo.socials.facebook}
@@ -125,8 +128,9 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-[#faf6f3]/80 hover:text-white transition-colors"
               >
+                <FontAwesomeIcon icon={faFacebookF} className="w-3.5 h-3.5 text-[#1877F2]" />
                 <span>Facebook Page</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="w-2.5 h-2.5 ml-auto text-xs" />
               </a>
               <a
                 href={businessInfo.socials.instagram}
@@ -134,8 +138,9 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-[#faf6f3]/80 hover:text-white transition-colors"
               >
+                <FontAwesomeIcon icon={faInstagram} className="w-3.5 h-3.5 text-[#E1306C]" />
                 <span>Instagram Profile</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="w-2.5 h-2.5 ml-auto text-xs" />
               </a>
             </div>
           </div>
@@ -146,7 +151,7 @@ export default function Footer() {
           <p>© {currentYear} BERRY LUXE TREATS Cameroon. All rights reserved.</p>
           <p className="flex items-center gap-1.5">
             <span>Made with</span>
-            <Heart className="w-3.5 h-3.5 text-[#c69255] fill-current" />
+            <FontAwesomeIcon icon={faHeart} className="w-3.5 h-3.5 text-[#c69255]" />
             <span>in Buea & Limbe • Delivered with Joy</span>
           </p>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { MessageCircle } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { createWhatsAppUrl } from '../../utils/whatsapp';
 
 export default function WhatsAppButton({
@@ -42,7 +43,7 @@ export default function WhatsAppButton({
         fullWidth ? 'w-full' : ''
       } ${className}`}
     >
-      <MessageCircle className="w-4 h-4 shrink-0 fill-current" />
+      <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4 text-base shrink-0" />
       <span>{children}</span>
     </a>
   );

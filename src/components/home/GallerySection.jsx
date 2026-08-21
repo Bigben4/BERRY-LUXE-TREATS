@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { MessageCircle } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import Container from '../common/Container';
 import SectionHeading from '../common/SectionHeading';
 import { galleryCategories, galleryItems } from '../../data/gallery';
@@ -23,39 +24,42 @@ export default function GallerySection({ onSelectImage }) {
         />
 
         {/* Category Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
-          {galleryCategories.map((cat) => (
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
+          {galleryCategories.map((category) => (
             <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
+              key={category}
+              onClick={() => setActiveCategory(category)}
               className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
-                activeCategory === cat
-                  ? 'bg-[#661f31] text-white shadow-md shadow-[#661f31]/20 ring-2 ring-[#661f31]'
-                  : 'bg-white text-[#64555b] hover:bg-[#fdf2f4] hover:text-[#661f31] border border-[#ede1e4]'
+                activeCategory === category
+                  ? 'bg-[#661f31] text-white shadow-md shadow-[#661f31]/20 scale-105'
+                  : 'bg-white text-[#64555b] border border-[#ede1e4] hover:border-[#661f31]/40 hover:text-[#661f31]'
               }`}
             >
-              {cat}
+              {category}
             </button>
           ))}
         </div>
 
-        {/* Masonry-style Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item, idx) => (
+        {/* Gallery Masonry / Bento Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {filteredItems.map((item, index) => (
             <div
               key={item.id}
-              className="group relative bg-white rounded-3xl overflow-hidden border border-[#ede1e4] ambient-shadow hover:ambient-shadow-lg transition-all duration-300 flex flex-col"
+              onClick={() => onSelectImage && onSelectImage(item)}
+              className={`group bg-white rounded-3xl overflow-hidden border border-[#ede1e4] ambient-shadow hover:ambient-shadow-lg transition-all duration-300 relative cursor-pointer ${
+                index % 4 === 0 ? 'sm:col-span-2 lg:col-span-1' : ''
+              }`}
             >
-              <div className="relative aspect-4/5 overflow-hidden bg-[#fdf2f4]">
+              <div className="h-72 sm:h-80 relative overflow-hidden bg-[#fdf2f4]">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                {/* Badge */}
+                {/* Top Badge */}
                 <div className="absolute top-4 left-4">
                   <span className="bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-[#661f31] border border-[#f4c4ce] shadow-sm">
                     {item.tag}
@@ -76,8 +80,16 @@ export default function GallerySection({ onSelectImage }) {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#20ba5a] text-white px-4 py-2 rounded-full text-xs font-bold shadow-md transition-transform active:scale-95"
                   >
-                    <MessageCircle className="w-3.5 h-3.5 fill-current" />
-                    <span>Order Similar on WhatsApp</span>
+                    <FontAwesomeIcon icon={faWhatsapp} className="w-3.5 h-3.5 text-sm" />
+                    <span>
+                      {item.category === 'Cakes'
+                        ? 'Ask About This Cake'
+                        : item.category === 'Money Bouquets & Hampers'
+                        ? 'Order This Bouquet'
+                        : item.category === 'Catering & Events'
+                        ? 'Get a Catering Quote'
+                        : 'Order Fresh Pastries'}
+                    </span>
                   </a>
                 </div>
               </div>
@@ -92,10 +104,10 @@ export default function GallerySection({ onSelectImage }) {
                   href={WhatsAppMessages.galleryItemInquiry(item.title)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full bg-[#661f31] text-white"
+                  className="p-2.5 rounded-full bg-[#661f31] text-white flex items-center justify-center"
                   aria-label={`Order ${item.title}`}
                 >
-                  <MessageCircle className="w-4 h-4 fill-current" />
+                  <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4" />
                 </a>
               </div>
             </div>

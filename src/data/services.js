@@ -7,7 +7,8 @@ export const premiumServices = [
     imageAlt: 'Bespoke Event Catering and Dessert Table Setup',
     icon: 'UtensilsCrossed',
     badge: 'Events & Weddings',
-    ctaText: 'Inquire on WhatsApp',
+    ctaText: 'Get a Catering Quote',
+    customMessage: "Hi! I'd like to get a catering quote for an event.",
     inquiryType: 'catering'
   },
   {
@@ -18,7 +19,8 @@ export const premiumServices = [
     imageAlt: 'Artisanal Fruit and Confection Gift Basket',
     icon: 'Gift',
     badge: 'Celebrations',
-    ctaText: 'Get a Quote on WhatsApp',
+    ctaText: 'Ask About Gift Baskets',
+    customMessage: "Hi! I'd like to ask about an Artisanal Gift Basket.",
     inquiryType: 'giftBasket'
   },
   {
@@ -29,7 +31,8 @@ export const premiumServices = [
     imageAlt: 'Handcrafted Fan Money Bouquet with Red Ribbon',
     icon: 'Banknote',
     badge: 'Viral Favorite',
-    ctaText: 'Inquire on WhatsApp',
+    ctaText: 'Order a Money Bouquet',
+    customMessage: "Hi! I'd like to order an Elegant Money Bouquet.",
     inquiryType: 'moneyBouquet'
   },
   {
@@ -40,7 +43,8 @@ export const premiumServices = [
     imageAlt: 'Signature Custom Themed Celebration Cake',
     icon: 'Cake',
     badge: 'Custom Masterpiece',
-    ctaText: 'Get a Quote on WhatsApp',
+    ctaText: 'Ask About This Cake',
+    customMessage: "Hi! I'd like to ask about this cake.",
     inquiryType: 'cake'
   }
 ];

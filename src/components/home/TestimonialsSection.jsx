@@ -1,5 +1,6 @@
 import React from 'react';
-import { Star, MapPin } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import Container from '../common/Container';
 import SectionHeading from '../common/SectionHeading';
 import { testimonials } from '../../data/testimonials';
@@ -24,7 +25,7 @@ export default function TestimonialsSection() {
                 {/* 5-star rating */}
                 <div className="flex items-center gap-1 text-[#c69255] mb-4">
                   {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#c69255]" />
+                    <FontAwesomeIcon key={i} icon={faStar} className="w-3.5 h-3.5 text-[#c69255]" />
                   ))}
                 </div>
 
@@ -40,8 +41,8 @@ export default function TestimonialsSection() {
                     {t.event}
                   </span>
                 </div>
-                <div className="flex items-center gap-1 text-[11px] font-semibold text-[#64555b]">
-                  <MapPin className="w-3.5 h-3.5 text-[#c69255]" />
+                <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#64555b]">
+                  <FontAwesomeIcon icon={faLocationDot} className="w-3 h-3 text-[#c69255]" />
                   <span>{t.location}</span>
                 </div>
               </div>

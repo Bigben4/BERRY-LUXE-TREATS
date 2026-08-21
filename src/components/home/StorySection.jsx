@@ -1,5 +1,6 @@
 import React from 'react';
-import { Heart, CheckCircle2 } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import Container from '../common/Container';
 import { businessInfo } from '../../data/businessInfo';
 import { WhatsAppMessages } from '../../utils/whatsapp';
@@ -30,20 +31,20 @@ export default function StorySection() {
 
             {/* Core Values */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-              <div className="flex items-center gap-2 text-sm font-semibold text-white bg-white/10 backdrop-blur-xs px-3.5 py-2 rounded-xl border border-white/15">
-                <CheckCircle2 className="w-4 h-4 text-[#dfb079] shrink-0" />
+              <div className="flex items-center gap-2.5 text-sm font-semibold text-white bg-white/10 backdrop-blur-xs px-3.5 py-2 rounded-xl border border-white/15">
+                <FontAwesomeIcon icon={faCircleCheck} className="w-3.5 h-3.5 text-[#dfb079] shrink-0" />
                 <span>100% Fresh Daily Bakes</span>
               </div>
-              <div className="flex items-center gap-2 text-sm font-semibold text-white bg-white/10 backdrop-blur-xs px-3.5 py-2 rounded-xl border border-white/15">
-                <CheckCircle2 className="w-4 h-4 text-[#dfb079] shrink-0" />
+              <div className="flex items-center gap-2.5 text-sm font-semibold text-white bg-white/10 backdrop-blur-xs px-3.5 py-2 rounded-xl border border-white/15">
+                <FontAwesomeIcon icon={faCircleCheck} className="w-3.5 h-3.5 text-[#dfb079] shrink-0" />
                 <span>Custom Inscriptions</span>
               </div>
-              <div className="flex items-center gap-2 text-sm font-semibold text-white bg-white/10 backdrop-blur-xs px-3.5 py-2 rounded-xl border border-white/15">
-                <CheckCircle2 className="w-4 h-4 text-[#dfb079] shrink-0" />
+              <div className="flex items-center gap-2.5 text-sm font-semibold text-white bg-white/10 backdrop-blur-xs px-3.5 py-2 rounded-xl border border-white/15">
+                <FontAwesomeIcon icon={faCircleCheck} className="w-3.5 h-3.5 text-[#dfb079] shrink-0" />
                 <span>Handcrafted Bouquets</span>
               </div>
-              <div className="flex items-center gap-2 text-sm font-semibold text-white bg-white/10 backdrop-blur-xs px-3.5 py-2 rounded-xl border border-white/15">
-                <CheckCircle2 className="w-4 h-4 text-[#dfb079] shrink-0" />
+              <div className="flex items-center gap-2.5 text-sm font-semibold text-white bg-white/10 backdrop-blur-xs px-3.5 py-2 rounded-xl border border-white/15">
+                <FontAwesomeIcon icon={faCircleCheck} className="w-3.5 h-3.5 text-[#dfb079] shrink-0" />
                 <span>Safe Doorstep Delivery</span>
               </div>
             </div>
@@ -56,7 +57,7 @@ export default function StorySection() {
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-[#c69255] to-[#dfb079] hover:from-[#b07c40] hover:to-[#c69255] text-white px-8 py-4 rounded-full text-sm font-bold shadow-lg shadow-black/30 hover:shadow-xl active:scale-95 transition-all"
               >
                 <span>Follow Our Journey</span>
-                <Heart className="w-4 h-4 text-white fill-current" />
+                <FontAwesomeIcon icon={faHeart} className="w-4 h-4 text-white" />
               </a>
             </div>
           </div>
