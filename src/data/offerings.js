@@ -31,7 +31,7 @@ export const offerings = [
     category: 'Cakes & Pastries',
     icon: 'Cake',
     title: 'Bento Cakes',
-    priceText: '6,000 FCFA',
+    priceText: '3,000 – 3,500 FCFA',
     badge: 'Mini Celebration',
     description: 'Mini personalized celebration cakes in cute eco lunchboxes, perfect for intimate moments.',
     features: [
@@ -44,7 +44,7 @@ export const offerings = [
     imageAlt: 'Personalized Bento Mini Celebration Cake',
     shapeRadius: 'rounded-3xl',
     ctaText: 'Ask About Bento Cake',
-    customMessage: "Hi! I'd like to ask about ordering a Bento Cake (6,000 FCFA).",
+    customMessage: "Hi! I'd like to ask about ordering a Bento Cake (3,000 – 3,500 FCFA).",
     inquiryType: 'bento cake'
   },
   {
