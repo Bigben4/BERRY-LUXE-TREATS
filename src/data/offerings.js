@@ -19,7 +19,7 @@ export const offerings = [
       'Vanilla, chocolate & red velvet',
       'Daily morning batches in Buea'
     ],
-    image: '/images/8da9d927-78c1-451a-b8d6-cddea3e47c32.jpg',
+    image: '/images/8da9d927-78c1-451a-b8d6-cddea3e47c32.webp',
     imageAlt: 'Artisanal Box of 6 Frosted Rose Cupcakes',
     shapeRadius: 'rounded-3xl',
     ctaText: 'Order Fresh Cupcakes',
@@ -40,7 +40,7 @@ export const offerings = [
       'Includes candle & mini fork',
       'Ideal for birthdays & anniversaries'
     ],
-    image: '/images/b7f0f8ab-d6db-4713-b295-d17edab218ac.jpg',
+    image: '/images/b7f0f8ab-d6db-4713-b295-d17edab218ac.webp',
     imageAlt: 'Personalized Bento Mini Celebration Cake',
     shapeRadius: 'rounded-3xl',
     ctaText: 'Ask About Bento Cake',
@@ -61,7 +61,7 @@ export const offerings = [
       'Choice of premium sponge & filling',
       'Moist texture & velvet finish'
     ],
-    image: '/images/d2ea059b-78cc-4e62-a5d9-fd57fe33f7d9.jpg',
+    image: '/images/d2ea059b-78cc-4e62-a5d9-fd57fe33f7d9.webp',
     imageAlt: 'Custom Berry Luxe Celebration Birthday Cake with Gold Topper',
     shapeRadius: 'rounded-3xl',
     ctaText: 'Ask About This Cake',
@@ -82,7 +82,7 @@ export const offerings = [
       'Tailored to event color palette',
       'On-site delivery & positioning'
     ],
-    image: '/images/32371d5f-6a17-48cd-94ab-75e8b0f4f373.jpg',
+    image: '/images/32371d5f-6a17-48cd-94ab-75e8b0f4f373.webp',
     imageAlt: 'Signature Multi-tier Custom Celebration Cake',
     shapeRadius: 'rounded-3xl',
     ctaText: 'Inquire About Custom Cake',
@@ -103,7 +103,7 @@ export const offerings = [
       'Satin ribbon & floral finishing',
       'Doorstep surprise delivery'
     ],
-    image: '/images/b3b06fd9-e033-4d1a-9065-7eaf1584e09f.jpg',
+    image: '/images/b3b06fd9-e033-4d1a-9065-7eaf1584e09f.webp',
     imageAlt: 'Artisanal Fruit and Confection Gift Basket',
     shapeRadius: 'rounded-3xl',
     ctaText: 'Ask About Gift Baskets',
@@ -124,7 +124,7 @@ export const offerings = [
       'Can be paired with fresh cupcakes',
       'Unforgettable surprise presentation'
     ],
-    image: '/images/2311ec76-eb90-483e-ae74-cc77da285528.jpg',
+    image: '/images/2311ec76-eb90-483e-ae74-cc77da285528.webp',
     imageAlt: 'Handcrafted Fan Money Bouquet with Red Ribbon',
     shapeRadius: 'rounded-3xl',
     ctaText: 'Order a Money Bouquet',

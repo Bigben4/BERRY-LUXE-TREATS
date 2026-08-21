@@ -72,8 +72,8 @@ export default function Hero() {
               <div className="absolute bottom-0 w-full h-1/3 bg-gradient-to-t from-[#661f31]/10 to-transparent pointer-events-none" />
 
               <img
-                src="/images/berry-baker-hero.png"
-                srcSet="/images/berry-baker-hero.png 1x, /images/berry-baker-hero@2x.png 2x"
+                src="/images/berry-baker-hero.webp"
+                srcSet="/images/berry-baker-hero.webp 1x, /images/berry-baker-hero@2x.webp 2x"
                 alt="Berry, Founder and Head Baker of Berry Luxe Treats"
                 className="relative z-10 w-full h-auto aspect-4/5 object-cover object-top drop-shadow-md group-hover:scale-103 transition-transform duration-700"
               />

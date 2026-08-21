@@ -17,5 +17,5 @@ export const businessInfo = {
   operatingHours: 'Mon - Sat: 8:00 AM - 7:00 PM | Sun: Event Deliveries Only',
   phone: '+237 671 940 348',
   rawPhone: '237671940348',
-  logo: '/BERRY_LUXE_LOGO-removebg-preview.png',
+  logo: '/BERRY_LUXE_LOGO-removebg-preview.webp',
 };

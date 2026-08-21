@@ -116,7 +116,7 @@ export default function StorySection() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={defaultViewport}
-                src="/images/24ec9fcc-2597-4d88-b67b-644ddebfa1e0_1_.jpg"
+                src="/images/24ec9fcc-2597-4d88-b67b-644ddebfa1e0_1_.webp"
                 alt="Head Baker Berry presenting handcrafted cake creation"
                 className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-700"
                 loading="lazy"
