@@ -110,7 +110,7 @@ export default function Footer() {
                 className="inline-flex items-center gap-2 text-sm text-emerald-400 hover:text-emerald-300 font-semibold transition-colors"
               >
                 <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4" />
-                <span>WhatsApp: {businessInfo.founder}</span>
+                <span>WhatsApp: {businessInfo.phone}</span>
               </a>
               <a
                 href={businessInfo.socials.tiktok}

@@ -5,8 +5,8 @@
 
 export const WHATSAPP_CONFIG = {
   // Official Berry Luxe Treats WhatsApp Phone Number (Cameroon Country Code +237)
-  phoneNumber: '237672288000',
-  displayPhoneNumber: '+237 672 288 000',
+  phoneNumber: '237671940348',
+  displayPhoneNumber: '+237 671 940 348',
   defaultGreeting: 'Hi Berry Luxe Treats! ',
 };
 
