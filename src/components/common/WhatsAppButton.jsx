@@ -1,7 +1,9 @@
 import React from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { createWhatsAppUrl } from '../../utils/whatsapp';
+import { smoothEase } from '../../animations/transitions';
 
 export default function WhatsAppButton({
   children = 'Order on WhatsApp',
@@ -10,8 +12,10 @@ export default function WhatsAppButton({
   variant = 'primary', // 'primary' | 'whatsapp' | 'gold' | 'outline'
   className = '',
   fullWidth = false,
-  onClick
+  onClick,
+  ...props
 }) {
+  const shouldReduceMotion = useReducedMotion();
   const whatsappUrl = createWhatsAppUrl(message);
 
   const sizeClasses = {
@@ -31,20 +35,31 @@ export default function WhatsAppButton({
       'bg-transparent text-[#661f31] border-2 border-[#661f31]/30 hover:border-[#661f31] hover:bg-[#661f31]/5 focus:ring-[#661f31]',
   };
 
+  const combinedClass = `inline-flex items-center justify-center font-semibold rounded-full transition-colors duration-200 cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ${
+    sizeClasses[size] || sizeClasses.md
+  } ${variantClasses[variant] || variantClasses.primary} ${
+    fullWidth ? 'w-full' : ''
+  } ${className}`;
+
+  const motionProps = shouldReduceMotion
+    ? {}
+    : {
+        whileHover: { y: -1, transition: { duration: 0.18, ease: smoothEase } },
+        whileTap: { scale: 0.98, transition: { duration: 0.1, ease: smoothEase } },
+      };
+
   return (
-    <a
+    <motion.a
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
       onClick={onClick}
-      className={`inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-offset-2 active:scale-95 ${
-        sizeClasses[size] || sizeClasses.md
-      } ${variantClasses[variant] || variantClasses.primary} ${
-        fullWidth ? 'w-full' : ''
-      } ${className}`}
+      className={combinedClass}
+      {...motionProps}
+      {...props}
     >
       <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4 text-base shrink-0" />
       <span>{children}</span>
-    </a>
+    </motion.a>
   );
 }

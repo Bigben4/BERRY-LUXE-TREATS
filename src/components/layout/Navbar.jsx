@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { WhatsAppMessages } from '../../utils/whatsapp';
 import { businessInfo } from '../../data/businessInfo';
+import { luxuryEase, smoothEase } from '../../animations/transitions';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -27,8 +30,20 @@ export default function Navbar() {
     { name: 'FAQ', href: '#faq' },
   ];
 
+  const headerVariants = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : -10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: luxuryEase },
+    },
+  };
+
   return (
-    <header
+    <motion.header
+      variants={headerVariants}
+      initial="hidden"
+      animate="visible"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-[#ede1e4]/70 py-2.5'
@@ -68,15 +83,17 @@ export default function Navbar() {
 
         {/* Right CTA Actions */}
         <div className="hidden lg:flex items-center gap-3">
-          <a
+          <motion.a
             href={WhatsAppMessages.chatWithBaker()}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-to-r from-[#c69255] to-[#dfb079] hover:from-[#b07c40] hover:to-[#c69255] text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-md shadow-[#c69255]/20 hover:shadow-lg transition-all active:scale-95"
+            whileHover={shouldReduceMotion ? {} : { y: -1 }}
+            whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+            className="bg-gradient-to-r from-[#c69255] to-[#dfb079] hover:from-[#b07c40] hover:to-[#c69255] text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-md shadow-[#c69255]/20 hover:shadow-lg transition-colors cursor-pointer"
           >
             <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4 text-base" />
             <span>Chat with a Baker</span>
-          </a>
+          </motion.a>
         </div>
 
         {/* Mobile Hamburger Toggle */}
@@ -85,7 +102,7 @@ export default function Navbar() {
             href={WhatsAppMessages.chatWithBaker()}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-full bg-[#661f31] text-white shadow-sm"
+            className="p-2 rounded-full bg-[#661f31] text-white shadow-sm active:scale-95 transition-transform"
             aria-label="Chat With a Baker on WhatsApp"
           >
             <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4" />
@@ -107,36 +124,44 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Slide-down Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-xl border-b border-[#ede1e4] px-6 py-6 space-y-4 shadow-xl transition-all animate-in fade-in slide-in-from-top-2">
-          <div className="flex flex-col space-y-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center justify-between text-base font-semibold text-[#1f1418] hover:text-[#661f31] py-2 border-b border-neutral-100"
-              >
-                <span>{link.name}</span>
-                <FontAwesomeIcon icon={faChevronRight} className="w-3.5 h-3.5 text-[#916127]" />
-              </a>
-            ))}
-          </div>
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.28, ease: smoothEase }}
+            className="md:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-b border-[#ede1e4] px-6 py-6 shadow-xl"
+          >
+            <div className="flex flex-col space-y-3">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center justify-between text-base font-semibold text-[#1f1418] hover:text-[#661f31] py-2 border-b border-neutral-100"
+                >
+                  <span>{link.name}</span>
+                  <FontAwesomeIcon icon={faChevronRight} className="w-3.5 h-3.5 text-[#916127]" />
+                </a>
+              ))}
+            </div>
 
-          <div className="pt-2">
-            <a
-              href={WhatsAppMessages.chatWithBaker()}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full bg-gradient-to-r from-[#661f31] to-[#822a41] text-white py-3.5 px-6 rounded-full font-bold text-sm flex items-center justify-center gap-2 shadow-md shadow-[#661f31]/20"
-            >
-              <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4 text-base" />
-              <span>Chat with a Baker on WhatsApp</span>
-            </a>
-          </div>
-        </div>
-      )}
-    </header>
+            <div className="pt-4">
+              <a
+                href={WhatsAppMessages.chatWithBaker()}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full bg-gradient-to-r from-[#661f31] to-[#822a41] text-white py-3.5 px-6 rounded-full font-bold text-sm flex items-center justify-center gap-2 shadow-md shadow-[#661f31]/20 active:scale-98 transition-transform"
+              >
+                <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4 text-base" />
+                <span>Chat with a Baker on WhatsApp</span>
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }

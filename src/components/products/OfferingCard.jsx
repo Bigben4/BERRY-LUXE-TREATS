@@ -1,7 +1,9 @@
 import React from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCakeCandles, faCookieBite, faUtensils, faGift, faMoneyBillWave, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import WhatsAppButton from '../common/WhatsAppButton';
+import { luxuryEase, smoothEase } from '../../animations/transitions';
 
 const iconMap = {
   Cake: faCakeCandles,
@@ -12,6 +14,8 @@ const iconMap = {
 };
 
 export default function OfferingCard({ offering, onOpenQuickOrder }) {
+  const shouldReduceMotion = useReducedMotion();
+
   const {
     title,
     icon,
@@ -22,14 +26,30 @@ export default function OfferingCard({ offering, onOpenQuickOrder }) {
     image,
     imageAlt,
     shapeRadius = 'rounded-3xl',
-    inquiryType
   } = offering;
 
   const faIcon = iconMap[icon] || faCakeCandles;
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 25 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: shouldReduceMotion ? 0.2 : 0.6, ease: luxuryEase },
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.96,
+      transition: { duration: 0.2, ease: smoothEase },
+    },
+  };
+
   return (
-    <div
-      className={`group bg-white border border-[#ede1e4] ${shapeRadius} overflow-hidden ambient-shadow hover:ambient-shadow-lg hover:border-[#661f31]/40 transition-all duration-300 flex flex-col justify-between`}
+    <motion.div
+      layout
+      variants={cardVariants}
+      whileHover={shouldReduceMotion ? {} : { y: -3, transition: { duration: 0.25, ease: smoothEase } }}
+      className={`group bg-white border border-[#ede1e4] ${shapeRadius} overflow-hidden ambient-shadow hover:ambient-shadow-lg hover:border-[#661f31]/40 transition-shadow duration-300 flex flex-col justify-between`}
     >
       <div>
         {/* Top Image Banner */}
@@ -97,6 +117,6 @@ export default function OfferingCard({ offering, onOpenQuickOrder }) {
           {offering.ctaText || `Order ${title}`}
         </WhatsAppButton>
       </div>
-    </div>
+    </motion.div>
   );
 }

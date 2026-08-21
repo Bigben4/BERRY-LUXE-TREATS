@@ -1,12 +1,46 @@
 import React from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot, faTruckFast, faCheck, faLocationArrow, faClock, faShieldHalved } from '@fortawesome/free-solid-svg-icons';
 import Container from '../common/Container';
-import { businessInfo } from '../../data/businessInfo';
 import { deliveryLocations, deliveryFeatures } from '../../data/delivery';
 import { WhatsAppMessages } from '../../utils/whatsapp';
+import { defaultViewport } from '../../animations/motionConfig';
+import { luxuryEase, smoothEase } from '../../animations/transitions';
 
 export default function DeliverySection() {
+  const shouldReduceMotion = useReducedMotion();
+
+  const containerVariants = {
+    hidden: { opacity: shouldReduceMotion ? 1 : 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: shouldReduceMotion ? 0 : 0.08,
+        delayChildren: shouldReduceMotion ? 0 : 0.04,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: shouldReduceMotion ? 0.2 : 0.6, ease: luxuryEase },
+    },
+  };
+
+  const rightCardVariants = {
+    hidden: { opacity: 0, scale: shouldReduceMotion ? 1 : 0.96, y: shouldReduceMotion ? 0 : 20 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: { duration: shouldReduceMotion ? 0.2 : 0.75, ease: luxuryEase },
+    },
+  };
+
   return (
     <section id="delivery" className="py-20 md:py-28 bg-gradient-to-br from-[#240b12] via-[#35101a] to-[#1c070e] text-white relative overflow-hidden">
       {/* Decorative background blurs */}
@@ -16,35 +50,49 @@ export default function DeliverySection() {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Delivery Information */}
-          <div className="lg:col-span-7 space-y-6">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-heading leading-tight">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={defaultViewport}
+            className="lg:col-span-7 space-y-6"
+          >
+            <motion.h2
+              variants={itemVariants}
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-heading leading-tight"
+            >
               Great Taste Has No Distance
-            </h2>
+            </motion.h2>
 
-            <p className="text-base sm:text-lg text-[#fdf2f4]/85 max-w-xl leading-relaxed">
+            <motion.p
+              variants={itemVariants}
+              className="text-base sm:text-lg text-[#fdf2f4]/85 max-w-xl leading-relaxed"
+            >
               We deliver our fresh creations across the South West and Littoral regions. Distance is never a barrier to celebrating life’s sweetest moments with Berry Luxe Treats.
-            </p>
+            </motion.p>
 
-            {/* Location Chips */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+            {/* Location Chips with Staggered Entrance */}
+            <motion.div variants={itemVariants} className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
               {deliveryLocations.map((loc) => (
-                <a
+                <motion.a
                   key={loc.city}
                   href={WhatsAppMessages.deliveryInquiry(loc.city)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 p-3 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/15 hover:border-[#dfb079] text-white font-semibold text-sm transition-all group shadow-sm cursor-pointer backdrop-blur-xs"
+                  whileHover={shouldReduceMotion ? {} : { y: -2 }}
+                  whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+                  className="flex items-center gap-2.5 p-3 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/15 hover:border-[#dfb079] text-white font-semibold text-sm transition-colors group shadow-sm cursor-pointer backdrop-blur-xs"
                 >
                   <div className="w-7 h-7 rounded-full bg-white/15 group-hover:bg-[#c69255] flex items-center justify-center text-[#dfb079] group-hover:text-white transition-colors shrink-0">
                     <FontAwesomeIcon icon={faLocationDot} className="w-3.5 h-3.5" />
                   </div>
                   <span>{loc.city}</span>
-                </a>
+                </motion.a>
               ))}
-            </div>
+            </motion.div>
 
             {/* Delivery Features list */}
-            <div className="space-y-3 pt-4 border-t border-white/15">
+            <motion.div variants={itemVariants} className="space-y-3 pt-4 border-t border-white/15">
               {deliveryFeatures.map((feat, idx) => (
                 <div key={idx} className="flex items-start gap-3">
                   <div className="w-5 h-5 rounded-full bg-[#c69255]/25 flex items-center justify-center text-[#dfb079] shrink-0 mt-0.5">
@@ -56,28 +104,36 @@ export default function DeliverySection() {
                   </div>
                 </div>
               ))}
-            </div>
+            </motion.div>
 
             {/* Action Button */}
-            <div className="pt-4">
-              <a
+            <motion.div variants={itemVariants} className="pt-4">
+              <motion.a
                 href={WhatsAppMessages.deliveryInquiry()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#c69255] to-[#dfb079] hover:from-[#b07c40] hover:to-[#c69255] text-white px-8 py-4 rounded-full text-sm font-bold shadow-lg shadow-black/30 hover:shadow-xl active:scale-95 transition-all"
+                whileHover={shouldReduceMotion ? {} : { y: -1 }}
+                whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#c69255] to-[#dfb079] hover:from-[#b07c40] hover:to-[#c69255] text-white px-8 py-4 rounded-full text-sm font-bold shadow-lg shadow-black/30 hover:shadow-xl transition-colors cursor-pointer"
               >
                 <span>Check Delivery Availability</span>
                 <FontAwesomeIcon icon={faTruckFast} className="w-4 h-4 text-white" />
-              </a>
-            </div>
-          </div>
+              </motion.a>
+            </motion.div>
+          </motion.div>
 
           {/* Right Column: Hero Delivery Feature Card */}
           <div className="lg:col-span-5 relative flex justify-center">
             <div className="absolute inset-0 bg-gradient-to-tr from-[#c69255]/25 via-[#822a41]/20 to-transparent rounded-full blur-3xl opacity-70" />
 
-            <div className="relative w-full max-w-sm bg-white/10 backdrop-blur-xl p-8 sm:p-10 rounded-[3rem_1rem_3rem_1rem] shadow-2xl border-2 border-white/20 text-center flex flex-col items-center gap-5 group">
-              <div className="w-24 h-24 rounded-full bg-white/10 border-2 border-white/20 flex items-center justify-center text-[#dfb079] group-hover:scale-110 transition-transform duration-500 shadow-inner">
+            <motion.div
+              variants={rightCardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={defaultViewport}
+              className="relative w-full max-w-sm bg-white/10 backdrop-blur-xl p-8 sm:p-10 rounded-[3rem_1rem_3rem_1rem] shadow-2xl border-2 border-white/20 text-center flex flex-col items-center gap-5 group"
+            >
+              <div className="w-24 h-24 rounded-full bg-white/10 border-2 border-white/20 flex items-center justify-center text-[#dfb079] group-hover:scale-108 transition-transform duration-500 shadow-inner">
                 <FontAwesomeIcon icon={faLocationArrow} className="w-10 h-10 text-[#dfb079]" />
               </div>
 
@@ -103,7 +159,7 @@ export default function DeliverySection() {
                   <span>Time-coordinated</span>
                 </span>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </Container>

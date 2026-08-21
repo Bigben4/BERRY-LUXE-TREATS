@@ -1,7 +1,9 @@
 import React from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUtensils, faGift, faMoneyBillWave, faCakeCandles } from '@fortawesome/free-solid-svg-icons';
 import WhatsAppButton from '../common/WhatsAppButton';
+import { luxuryEase, smoothEase } from '../../animations/transitions';
 
 const iconMap = {
   UtensilsCrossed: faUtensils,
@@ -11,11 +13,25 @@ const iconMap = {
 };
 
 export default function ServiceCard({ service }) {
-  const { title, description, priceText, image, imageAlt, icon, badge, ctaText } = service;
+  const shouldReduceMotion = useReducedMotion();
+  const { title, description, priceText, image, imageAlt, icon, badge } = service;
   const faIcon = iconMap[icon] || faCakeCandles;
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 25 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: shouldReduceMotion ? 0.2 : 0.6, ease: luxuryEase },
+    },
+  };
+
   return (
-    <div className="bg-white rounded-2xl border border-[#ede1e4] shadow-xs hover:shadow-md hover:border-[#661f31]/30 transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+    <motion.div
+      variants={cardVariants}
+      whileHover={shouldReduceMotion ? {} : { y: -3, transition: { duration: 0.25, ease: smoothEase } }}
+      className="bg-white rounded-2xl border border-[#ede1e4] shadow-xs hover:shadow-md hover:border-[#661f31]/30 transition-shadow duration-300 flex flex-col justify-between overflow-hidden group"
+    >
       <div>
         {/* Card Image */}
         <div className="h-52 overflow-hidden relative bg-[#fdf2f4]">
@@ -45,7 +61,7 @@ export default function ServiceCard({ service }) {
         {/* Content */}
         <div className="p-6">
           {/* Icon Circle */}
-          <div className="w-12 h-12 rounded-full bg-[#fdf2f4] border border-[#f4c4ce] flex items-center justify-center -mt-12 mb-4 relative z-10 shadow-xs text-[#661f31]">
+          <div className="w-12 h-12 rounded-full bg-[#fdf2f4] border border-[#f4c4ce] flex items-center justify-center -mt-12 mb-4 relative z-10 shadow-xs text-[#661f31] group-hover:scale-105 transition-transform duration-300">
             <FontAwesomeIcon icon={faIcon} className="w-4 h-4 text-base" />
           </div>
 
@@ -70,6 +86,6 @@ export default function ServiceCard({ service }) {
           {service.ctaText || `Inquire About ${title}`}
         </WhatsAppButton>
       </div>
-    </div>
+    </motion.div>
   );
 }

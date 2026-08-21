@@ -1,19 +1,49 @@
 import React from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot, faClock, faHeart, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp, faTiktok, faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { businessInfo } from '../../data/businessInfo';
 import { WhatsAppMessages } from '../../utils/whatsapp';
+import { defaultViewport } from '../../animations/motionConfig';
+import { luxuryEase } from '../../animations/transitions';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const shouldReduceMotion = useReducedMotion();
+
+  const containerVariants = {
+    hidden: { opacity: shouldReduceMotion ? 1 : 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: shouldReduceMotion ? 0 : 0.08,
+        delayChildren: shouldReduceMotion ? 0 : 0.05,
+      },
+    },
+  };
+
+  const colVariants = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 18 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: shouldReduceMotion ? 0.2 : 0.6, ease: luxuryEase },
+    },
+  };
 
   return (
     <footer className="bg-[#1f1418] text-[#faf6f3] w-full rounded-t-[2.5rem] mt-16 relative z-10 pb-28 md:pb-12 border-t border-[#3a0d18]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-[#3a0d18]">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-[#3a0d18]"
+        >
           {/* Column 1: Brand & Logo */}
-          <div className="space-y-4 md:col-span-1">
+          <motion.div variants={colVariants} className="space-y-4 md:col-span-1">
             <div className="flex items-center gap-3">
               <img
                 src={businessInfo.logo}
@@ -36,10 +66,10 @@ export default function Footer() {
               <FontAwesomeIcon icon={faClock} className="w-3.5 h-3.5" />
               <span>{businessInfo.operatingHours}</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Column 2: Quick Links / Menu */}
-          <div>
+          <motion.div variants={colVariants}>
             <h4 className="text-xs font-bold uppercase tracking-widest text-[#c69255] mb-4">
               Our Specialties
             </h4>
@@ -70,10 +100,10 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Column 3: Delivery Locations */}
-          <div>
+          <motion.div variants={colVariants}>
             <h4 className="text-xs font-bold uppercase tracking-widest text-[#c69255] mb-4">
               Delivery Towns
             </h4>
@@ -92,10 +122,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Column 4: WhatsApp & Socials */}
-          <div className="space-y-4">
+          <motion.div variants={colVariants} className="space-y-4">
             <h4 className="text-xs font-bold uppercase tracking-widest text-[#c69255] mb-4">
               Connect With Us
             </h4>
@@ -143,8 +173,8 @@ export default function Footer() {
                 <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="w-2.5 h-2.5 ml-auto text-xs" />
               </a>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Bottom copyright line */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#faf6f3]/60 gap-4">

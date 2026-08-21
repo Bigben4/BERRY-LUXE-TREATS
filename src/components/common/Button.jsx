@@ -1,5 +1,7 @@
 import React from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { smoothEase } from '../../animations/transitions';
 
 export default function Button({
   children,
@@ -15,8 +17,10 @@ export default function Button({
   rel,
   ...props
 }) {
+  const shouldReduceMotion = useReducedMotion();
+
   const baseClasses =
-    'inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-offset-2 active:scale-95 disabled:opacity-50 disabled:pointer-events-none';
+    'inline-flex items-center justify-center font-semibold rounded-full transition-colors duration-200 cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none';
 
   const sizeClasses = {
     sm: 'px-4 py-2 text-xs gap-1.5',
@@ -38,7 +42,7 @@ export default function Button({
     whatsapp:
       'bg-gradient-to-r from-[#25d366] to-[#128c7e] hover:from-[#20ba5a] hover:to-[#0f756a] text-white shadow-md hover:shadow-lg focus:ring-emerald-500',
     ghost:
-      'bg-transparent text-[#64555b] hover:text-[#661f31] hover:bg-[#661f31]/5 focus:ring-[#661f31]'
+      'bg-transparent text-[#64555b] hover:text-[#661f31] hover:bg-[#661f31]/5 focus:ring-[#661f31]',
   };
 
   const combinedClass = `${baseClasses} ${sizeClasses[size] || sizeClasses.md} ${
@@ -62,17 +66,37 @@ export default function Button({
     </>
   );
 
+  const motionProps = shouldReduceMotion
+    ? {}
+    : {
+        whileHover: { y: -1, transition: { duration: 0.18, ease: smoothEase } },
+        whileTap: { scale: 0.98, transition: { duration: 0.1, ease: smoothEase } },
+      };
+
   if (href) {
     return (
-      <a href={href} className={combinedClass} target={target} rel={rel} {...props}>
+      <motion.a
+        href={href}
+        className={combinedClass}
+        target={target}
+        rel={rel}
+        {...motionProps}
+        {...props}
+      >
         {content}
-      </a>
+      </motion.a>
     );
   }
 
   return (
-    <button type="button" onClick={onClick} className={combinedClass} {...props}>
+    <motion.button
+      type="button"
+      onClick={onClick}
+      className={combinedClass}
+      {...motionProps}
+      {...props}
+    >
       {content}
-    </button>
+    </motion.button>
   );
 }

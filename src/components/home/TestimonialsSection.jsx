@@ -1,11 +1,36 @@
 import React from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import Container from '../common/Container';
 import SectionHeading from '../common/SectionHeading';
 import { testimonials } from '../../data/testimonials';
+import { cardGridViewport } from '../../animations/motionConfig';
+import { luxuryEase, smoothEase } from '../../animations/transitions';
 
 export default function TestimonialsSection() {
+  const shouldReduceMotion = useReducedMotion();
+
+  const containerVariants = {
+    hidden: { opacity: shouldReduceMotion ? 1 : 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: shouldReduceMotion ? 0 : 0.09,
+        delayChildren: shouldReduceMotion ? 0 : 0.05,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: shouldReduceMotion ? 0.2 : 0.6, ease: luxuryEase },
+    },
+  };
+
   return (
     <section id="testimonials" className="py-20 md:py-28 bg-[#fbf0f4] border-t border-[#ede1e4]">
       <Container>
@@ -15,11 +40,19 @@ export default function TestimonialsSection() {
           className="mb-14 md:mb-16"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={cardGridViewport}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
           {testimonials.map((t) => (
-            <div
+            <motion.div
               key={t.id}
-              className="bg-white rounded-3xl p-6 sm:p-7 border border-[#ede1e4] ambient-shadow hover:ambient-shadow-lg transition-all duration-300 flex flex-col justify-between"
+              variants={cardVariants}
+              whileHover={shouldReduceMotion ? {} : { y: -3, transition: { duration: 0.25, ease: smoothEase } }}
+              className="bg-white rounded-3xl p-6 sm:p-7 border border-[#ede1e4] ambient-shadow hover:ambient-shadow-lg transition-shadow duration-300 flex flex-col justify-between"
             >
               <div>
                 {/* 5-star rating */}
@@ -46,9 +79,9 @@ export default function TestimonialsSection() {
                   <span>{t.location}</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </Container>
     </section>
   );
